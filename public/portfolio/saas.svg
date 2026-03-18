@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E90FF" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#00C6FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#FFA500" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A2540"/>
+      <stop offset="1" stop-color="#06172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" rx="48" fill="url(#bg)"/>
+  <rect x="60" y="70" width="1080" height="610" rx="34" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="90" y="110" width="270" height="520" rx="24" fill="rgba(255,255,255,0.06)"/>
+  <rect x="385" y="110" width="725" height="170" rx="24" fill="url(#g)"/>
+  <rect x="385" y="305" width="350" height="325" rx="24" fill="rgba(255,255,255,0.06)"/>
+  <rect x="760" y="305" width="350" height="325" rx="24" fill="rgba(255,255,255,0.06)"/>
+  <g fill="rgba(255,255,255,0.85)" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700">
+    <text x="420" y="165" font-size="34">SaaS Marketing Site</text>
+    <text x="420" y="210" font-size="18" fill="rgba(255,255,255,0.75)">Landing • SEO • Conversion</text>
+  </g>
+</svg>
+
