@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 type RevealTag = "div" | "section" | "article" | "figure" | "header";
 
@@ -11,44 +11,28 @@ type RevealProps = {
 };
 
 export default function Reveal({ children, className, as = "div" }: RevealProps) {
-  // Keep typing simple and predictable for Next/Turbopack TS runs.
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const Component: any = as;
-  const ref = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+  const commonProps = {
+    className,
+    initial: prefersReducedMotion ? false : { opacity: 0, y: 22, filter: "blur(6px)" },
+    whileInView: prefersReducedMotion ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" },
+    viewport: { once: true, amount: 0.2 },
+    transition: prefersReducedMotion
+      ? undefined
+      : { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
+  };
 
-    if (typeof IntersectionObserver === "undefined") {
-      setIsVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-            break;
-          }
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.15 },
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <Component
-      ref={ref}
-      className={`reveal ${isVisible ? "is-visible" : ""} ${className ?? ""}`}
-    >
-      {children}
-    </Component>
-  );
+  switch (as) {
+    case "section":
+      return <motion.section {...commonProps}>{children}</motion.section>;
+    case "article":
+      return <motion.article {...commonProps}>{children}</motion.article>;
+    case "figure":
+      return <motion.figure {...commonProps}>{children}</motion.figure>;
+    case "header":
+      return <motion.header {...commonProps}>{children}</motion.header>;
+    default:
+      return <motion.div {...commonProps}>{children}</motion.div>;
+  }
 }

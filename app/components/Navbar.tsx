@@ -1,16 +1,38 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#services", label: "Services" },
-  { href: "#portfolio", label: "Portfolio" },
+  { href: "#trusted-partners", label: "Partners" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 12);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur dark:bg-black/40">
+    <header
+      className={`fixed inset-x-0 top-0 z-[90] border-b transition-all duration-300 ${
+        isScrolled
+          ? "border-slate-200/70 bg-white/88 shadow-[0_16px_40px_-28px_rgba(10,37,64,0.38)] backdrop-blur-xl dark:border-white/10 dark:bg-black/72"
+          : "border-transparent bg-white/58 backdrop-blur-md dark:bg-black/34"
+      }`}
+    >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <Link
           href="#home"

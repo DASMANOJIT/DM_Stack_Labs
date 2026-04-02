@@ -2,11 +2,11 @@ import Reveal from "./Reveal";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="home" className="relative overflow-hidden pt-24 sm:pt-28">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_20%_10%,rgba(30,144,255,0.25),transparent_50%),radial-gradient(900px_circle_at_80%_20%,rgba(0,198,255,0.25),transparent_55%),radial-gradient(900px_circle_at_50%_90%,rgba(255,165,0,0.10),transparent_60%)]" />
       <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,rgba(2,6,23,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(2,6,23,0.08)_1px,transparent_1px)] [background-size:48px_48px] dark:opacity-20 dark:[background-image:linear-gradient(to_right,rgba(226,232,240,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(226,232,240,0.10)_1px,transparent_1px)]" />
 
-      <div className="relative mx-auto w-full max-w-6xl px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-16">
+      <div className="relative mx-auto w-full max-w-6xl px-4 pb-12 sm:px-6 sm:pb-16">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm backdrop-blur dark:bg-white/5 dark:text-slate-200">
@@ -36,10 +36,10 @@ export default function Hero() {
                 Get Started
               </a>
               <a
-                href="#portfolio"
+                href="#trusted-partners"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 bg-white/70 px-6 text-sm font-semibold text-slate-900 shadow-sm backdrop-blur transition hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
               >
-                View Portfolio
+                View Partners
               </a>
             </div>
 

@@ -8,6 +8,14 @@
   --brand-gradient-end: #00C6FF;
   --brand-accent: #FFA500;
   --brand-bg: #F8FAFC;
+
+  --locked-bg: #08111d;
+  --locked-panel: rgba(14, 25, 40, 0.9);
+  --locked-panel-solid: #101a29;
+  --locked-card: rgba(24, 38, 59, 0.92);
+  --locked-border: rgba(148, 163, 184, 0.26);
+  --locked-text: #F8FAFC;
+  --locked-muted: #C5D4E4;
 }
 
 @theme inline {
@@ -40,6 +48,29 @@ body {
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
+.theme-dark-locked {
+  --locked-bg: #08111d;
+  --locked-panel: rgba(14, 25, 40, 0.9);
+  --locked-panel-solid: #101a29;
+  --locked-card: rgba(24, 38, 59, 0.92);
+  --locked-border: rgba(148, 163, 184, 0.26);
+  --locked-text: #F8FAFC;
+  --locked-muted: #C5D4E4;
+  color: var(--locked-text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-dark-locked {
+    --locked-bg: #0d1724;
+    --locked-panel: rgba(20, 31, 48, 0.94);
+    --locked-panel-solid: #152131;
+    --locked-card: rgba(33, 49, 72, 0.95);
+    --locked-border: rgba(148, 163, 184, 0.32);
+    --locked-text: #F8FAFC;
+    --locked-muted: #D2DEEB;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -50,25 +81,8 @@ h6 {
     Segoe UI, Roboto, Helvetica, Arial;
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 600ms ease, transform 600ms ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }

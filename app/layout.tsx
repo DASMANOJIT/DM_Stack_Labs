@@ -18,7 +18,7 @@ const poppins = Poppins({
 
 export async function generateMetadata(): Promise<Metadata> {
   const description =
-    "Affordable website development company building SEO-optimized, responsive websites for startups and small businesses. Fast delivery and scalable code.";
+    "Web development agency for Next.js development, full-stack development, business website development, and scalable digital solutions for businesses.";
 
   let metadataBase: URL | undefined;
   try {
@@ -39,10 +39,20 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase,
-    title: "DM Stack Labs | Website Development Company",
+    title: "DM Stack Labs | Web Development & Digital Solutions",
     description,
     keywords: [
       "website development company",
+      "web development agency",
+      "full-stack development",
+      "business websites",
+      "business website development",
+      "Next.js development",
+      "custom web solutions",
+      "scalable web applications",
+      "software development agency",
+      "digital solutions for businesses",
+      "scalable solutions",
       "web development services",
       "affordable website development",
       "custom website development",
@@ -61,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: "/",
     },
     openGraph: {
-      title: "DM Stack Labs | Website Development Company",
+      title: "DM Stack Labs | Web Development & Digital Solutions",
       description,
       type: "website",
       siteName: "DM Stack Labs",
@@ -69,7 +79,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "DM Stack Labs | Website Development Company",
+      title: "DM Stack Labs | Web Development & Digital Solutions",
       description,
     },
   };
@@ -90,7 +100,7 @@ export default function RootLayout({
       addressCountry: "IN",
     },
     description:
-      "DM Stack Labs is a website development company providing web development services, custom website development, SEO optimized websites, and responsive website design.",
+      "DM Stack Labs is a web development agency delivering Next.js development, full-stack development, custom web solutions, and scalable web applications for businesses.",
     makesOffer: [
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Website Development" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "UI/UX Design" } },

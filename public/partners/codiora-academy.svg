@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240" fill="none">
+  <rect width="600" height="240" rx="36" fill="#F8FAFC"/>
+  <rect x="28" y="28" width="544" height="184" rx="28" fill="#FFFFFF" stroke="#D7E3F4"/>
+  <rect x="64" y="72" width="74" height="74" rx="22" fill="#0A2540"/>
+  <path d="M87 109.5C87 96.5213 97.5213 86 110.5 86H115.5C128.479 86 139 96.5213 139 109.5C139 122.479 128.479 133 115.5 133H110.5C97.5213 133 87 122.479 87 109.5Z" fill="#00C6FF"/>
+  <path d="M97 109.5C97 102.044 103.044 96 110.5 96H115.5C122.956 96 129 102.044 129 109.5C129 116.956 122.956 123 115.5 123H110.5C103.044 123 97 116.956 97 109.5Z" fill="#1E90FF"/>
+  <text x="170" y="107" fill="#0A2540" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">Codiora</text>
+  <text x="170" y="146" fill="#52708F" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600">Academy</text>
+</svg>

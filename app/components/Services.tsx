@@ -114,9 +114,9 @@ export default function Services() {
           design with performance and SEO built in. See our{" "}
           <a
             className="font-semibold text-slate-900 underline underline-offset-4 hover:opacity-90 dark:text-white"
-            href="#portfolio"
+            href="#trusted-partners"
           >
-            portfolio
+            trusted partners
           </a>{" "}
           or{" "}
           <a

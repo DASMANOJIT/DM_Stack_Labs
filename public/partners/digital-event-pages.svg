@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240" fill="none">
+  <rect width="600" height="240" rx="36" fill="#F8FAFC"/>
+  <rect x="28" y="28" width="544" height="184" rx="28" fill="#FFFFFF" stroke="#D7E3F4"/>
+  <rect x="64" y="72" width="74" height="74" rx="22" fill="#FFA500"/>
+  <path d="M87 109C87 98.5066 95.5066 90 106 90C110.982 90 115.504 91.943 118.897 95.1113C122.298 91.943 126.82 90 131.802 90C142.295 90 150.802 98.5066 150.802 109C150.802 121.905 136.306 132.559 118.897 144C101.488 132.559 87 121.905 87 109Z" fill="#FFF7ED"/>
+  <text x="170" y="102" fill="#0A2540" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">Digital Event</text>
+  <text x="170" y="141" fill="#52708F" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">&amp; Proposal Pages</text>
+</svg>
