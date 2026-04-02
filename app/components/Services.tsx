@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 const services = [
@@ -103,6 +104,14 @@ const services = [
 ] as const;
 
 export default function Services() {
+  const serviceLinks = [
+    { href: "/services/website-development", label: "Website Development" },
+    { href: "/services/full-stack-web-app-development", label: "Full-Stack Web Apps" },
+    { href: "/services/saas-product-development", label: "SaaS Product Development" },
+    { href: "/services/landing-page-design", label: "Landing Page Design" },
+    { href: "/services/business-automation-tools", label: "Business Automation Tools" },
+  ];
+
   return (
     <section id="services" className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
       <Reveal>
@@ -146,6 +155,41 @@ export default function Services() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal className="mt-10 rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5">
+        <h3 className="text-lg font-semibold text-slate-950 dark:text-white">
+          Explore our core services
+        </h3>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300">
+          These pages are structured for business owners comparing service options, project scope,
+          and next steps.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          {serviceLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-900 transition hover:border-slate-300 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/#contact"
+            className="inline-flex h-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--brand-blue),var(--brand-gradient-end))] px-5 text-sm font-semibold text-white shadow-sm transition hover:opacity-95"
+          >
+            Book a Consultation
+          </Link>
+          <Link
+            href="/#contact"
+            className="inline-flex h-11 items-center justify-center rounded-full border border-slate-200 bg-white px-5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+          >
+            Get a Quote
+          </Link>
+        </div>
+      </Reveal>
     </section>
   );
 }
