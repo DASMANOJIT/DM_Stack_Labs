@@ -1,9 +1,26 @@
 export const siteName = "DM Stack Labs";
-export const siteUrl = (
+
+const configuredProductionUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.SITE_URL ||
-  "https://dmstacklabs.com"
-).replace(/\/$/, "");
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : undefined);
+
+export function resolveSiteUrl(host?: string, protocol = "https") {
+  const configured = configuredProductionUrl?.replace(/\/$/, "");
+  if (configured) return configured;
+
+  if (host) {
+    return `${protocol}://${host}`.replace(/\/$/, "");
+  }
+
+  return process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://dmstacklabs.com";
+}
+
+export const siteUrl = resolveSiteUrl();
 
 export const siteDescription =
   "DM Stack Labs is a web development agency in India offering custom website development, full-stack web applications, UI/UX design, SaaS product development, landing page design, POS software, employee management systems, and business automation solutions.";
