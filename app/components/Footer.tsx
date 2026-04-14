@@ -20,7 +20,7 @@ export default function Footer() {
             >
               <span className="relative inline-flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur dark:bg-white/10 dark:ring-white/10">
                 <Image
-                  src="/logo.png"
+                  src="/main.png"
                   alt="DM Stack Labs website development company logo"
                   width={44}
                   height={44}

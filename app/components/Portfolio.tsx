@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
 const partners = [
@@ -20,7 +19,7 @@ const partners = [
   },
   {
     name: "Subho's Computer Institute",
-    logo: "/logo3.png",
+    logo: "/logo.png",
     url: "https://subhos.vercel.app/",
     alt: "Subho's Computer Institute logo",
   },
@@ -46,31 +45,6 @@ const partners = [
 
 export default function Portfolio() {
   const prefersReducedMotion = useReducedMotion();
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const [trackWidth, setTrackWidth] = useState(0);
-
-  useEffect(() => {
-    const node = trackRef.current;
-    if (!node) return;
-
-    const updateWidth = () => {
-      setTrackWidth(node.offsetWidth);
-    };
-
-    updateWidth();
-
-    const observer = new ResizeObserver(() => {
-      updateWidth();
-    });
-
-    observer.observe(node);
-    window.addEventListener("resize", updateWidth);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updateWidth);
-    };
-  }, []);
 
   return (
     <section
@@ -99,24 +73,10 @@ export default function Portfolio() {
           <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[var(--locked-panel-solid)] via-[rgba(15,24,38,0.90)] to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[var(--locked-panel-solid)] via-[rgba(15,24,38,0.90)] to-transparent" />
 
-          <motion.div
-            className="relative z-10 flex w-max"
-            animate={
-              prefersReducedMotion || !trackWidth
-                ? undefined
-                : { x: [0, -trackWidth] }
-            }
-            transition={
-              prefersReducedMotion || !trackWidth
-                ? undefined
-                : {
-                    duration: Math.max(22, trackWidth / 42),
-                    ease: "linear",
-                    repeat: Number.POSITIVE_INFINITY,
-                  }
-            }
+          <div
+            className={`relative z-10 flex w-max ${prefersReducedMotion ? "" : "partners-marquee-track"} [--partners-duration:26s] sm:[--partners-duration:32s] lg:[--partners-duration:38s]`}
           >
-            <div ref={trackRef} className="flex shrink-0 gap-5 pr-5 sm:gap-6 sm:pr-6">
+            <div className="flex shrink-0 gap-5 pr-5 sm:gap-6 sm:pr-6">
               {partners.map((partner) => (
                 <motion.a
                   key={partner.name}
@@ -182,9 +142,31 @@ export default function Portfolio() {
                 </motion.a>
               ))}
             </div>
-          </motion.div>
+          </div>
         </Reveal>
       </div>
+      <style jsx>{`
+        .partners-marquee-track {
+          animation: partners-marquee var(--partners-duration) linear infinite;
+          will-change: transform;
+          transform: translate3d(0, 0, 0);
+        }
+
+        @keyframes partners-marquee {
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+          to {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .partners-marquee-track {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }
