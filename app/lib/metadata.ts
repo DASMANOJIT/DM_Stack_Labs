@@ -45,7 +45,14 @@ export function createPageMetadata({
 }
 
 export const defaultMetadata: Metadata = createPageMetadata({
-  title: "DM Stack Labs | Web Development Agency in India",
+  title: "DM Stack Labs | Web Development Agency & Custom Software",
   description: siteDescription,
   path: "/",
+  keywords: [
+    "web development agency",
+    "custom website development",
+    "full-stack web development",
+    "UI/UX design",
+    "business automation solutions",
+  ],
 });

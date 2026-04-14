@@ -2,14 +2,21 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
 const partners = [
   {
     name: "Codiora Academy",
     logo: "/logo1.png",
-    url: "https://codiora-academy-zeta.vercel.app/",
+    url: "https://www.codioraacademy.in/",
     alt: "Codiora Academy logo",
+  },
+  {
+    name: "Nexus HR",
+    logo: "/helo.png",
+    url: "https://nexushr-1.onrender.com/",
+    alt: "Nexus HR logo",
   },
   {
     name: "Subho's Computer Institute",
@@ -23,11 +30,47 @@ const partners = [
     url: "https://flowlytiks-frontend.onrender.com",
     alt: "Flowlytiks logo",
   },
+  {
+    name: "Restura POS",
+    logo: "/logo4.png",
+    url: "https://resturapos.onrender.com/",
+    alt: "Restura POS logo",
+  },
+  {
+    name: "Korean Cafe",
+    logo: "/logo6.png",
+    url: "https://korean-cafe.vercel.app/",
+    alt: "Korean Cafe logo",
+  },
 ] as const;
 
 export default function Portfolio() {
   const prefersReducedMotion = useReducedMotion();
-  const marqueePartners = [...partners, ...partners];
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [trackWidth, setTrackWidth] = useState(0);
+
+  useEffect(() => {
+    const node = trackRef.current;
+    if (!node) return;
+
+    const updateWidth = () => {
+      setTrackWidth(node.offsetWidth);
+    };
+
+    updateWidth();
+
+    const observer = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    observer.observe(node);
+    window.addEventListener("resize", updateWidth);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateWidth);
+    };
+  }, []);
 
   return (
     <section
@@ -57,44 +100,88 @@ export default function Portfolio() {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[var(--locked-panel-solid)] via-[rgba(15,24,38,0.90)] to-transparent" />
 
           <motion.div
-            className="relative z-10 flex w-max gap-5 px-5 sm:gap-6 sm:px-6"
-            animate={prefersReducedMotion ? undefined : { x: ["0%", "-50%"] }}
-            transition={
-              prefersReducedMotion
+            className="relative z-10 flex w-max"
+            animate={
+              prefersReducedMotion || !trackWidth
                 ? undefined
-                : { ease: "linear", duration: 24, repeat: Number.POSITIVE_INFINITY }
+                : { x: [0, -trackWidth] }
+            }
+            transition={
+              prefersReducedMotion || !trackWidth
+                ? undefined
+                : {
+                    duration: Math.max(22, trackWidth / 42),
+                    ease: "linear",
+                    repeat: Number.POSITIVE_INFINITY,
+                  }
             }
           >
-            {marqueePartners.map((partner, index) => (
-              <motion.a
-                key={`${partner.name}-${index}`}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit ${partner.name}`}
-                className="group relative flex h-24 w-[220px] shrink-0 items-center justify-center rounded-[28px] border border-[color:var(--locked-border)] bg-[var(--locked-card)] px-8 shadow-[0_18px_40px_-28px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:h-28 sm:w-[260px]"
-                whileHover={
-                  prefersReducedMotion
-                    ? undefined
-                    : {
-                        y: -6,
-                        scale: 1.03,
-                        transition: { type: "spring", stiffness: 280, damping: 20 },
-                      }
-                }
-              >
-                <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[radial-gradient(320px_circle_at_50%_0%,rgba(255,255,255,0.16),transparent_55%)] opacity-80" />
-                <div className="relative h-14 w-full sm:h-16">
-                  <Image
-                    src={partner.logo}
-                    alt={partner.alt}
-                    fill
-                    sizes="260px"
-                  className="object-contain brightness-110 contrast-110 drop-shadow-[0_14px_30px_rgba(0,0,0,0.4)] transition duration-300 group-hover:brightness-125"
-                />
-              </div>
-            </motion.a>
-            ))}
+            <div ref={trackRef} className="flex shrink-0 gap-5 pr-5 sm:gap-6 sm:pr-6">
+              {partners.map((partner) => (
+                <motion.a
+                  key={partner.name}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${partner.name}`}
+                  className="group relative flex h-24 w-[220px] shrink-0 items-center justify-center rounded-[28px] border border-[color:var(--locked-border)] bg-[var(--locked-card)] px-8 shadow-[0_18px_40px_-28px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:h-28 sm:w-[260px]"
+                  whileHover={
+                    prefersReducedMotion
+                      ? undefined
+                      : {
+                          y: -6,
+                          scale: 1.03,
+                          transition: { type: "spring", stiffness: 280, damping: 20 },
+                        }
+                  }
+                >
+                  <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[radial-gradient(320px_circle_at_50%_0%,rgba(255,255,255,0.16),transparent_55%)] opacity-80" />
+                  <div className="relative h-14 w-full sm:h-16">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.alt}
+                      fill
+                      sizes="260px"
+                      className="object-contain brightness-110 contrast-110 drop-shadow-[0_14px_30px_rgba(0,0,0,0.4)] transition duration-300 group-hover:brightness-125"
+                    />
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
+            <div aria-hidden="true" className="flex shrink-0 gap-5 sm:gap-6">
+              {partners.map((partner) => (
+                <motion.a
+                  key={`${partner.name}-duplicate`}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={-1}
+                  aria-label={`Visit ${partner.name}`}
+                  className="group relative flex h-24 w-[220px] shrink-0 items-center justify-center rounded-[28px] border border-[color:var(--locked-border)] bg-[var(--locked-card)] px-8 shadow-[0_18px_40px_-28px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:h-28 sm:w-[260px]"
+                  whileHover={
+                    prefersReducedMotion
+                      ? undefined
+                      : {
+                          y: -6,
+                          scale: 1.03,
+                          transition: { type: "spring", stiffness: 280, damping: 20 },
+                        }
+                  }
+                >
+                  <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[radial-gradient(320px_circle_at_50%_0%,rgba(255,255,255,0.16),transparent_55%)] opacity-80" />
+                  <div className="relative h-14 w-full sm:h-16">
+                    <Image
+                      src={partner.logo}
+                      alt=""
+                      fill
+                      sizes="260px"
+                      className="object-contain brightness-110 contrast-110 drop-shadow-[0_14px_30px_rgba(0,0,0,0.4)] transition duration-300 group-hover:brightness-125"
+                    />
+                  </div>
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
         </Reveal>
       </div>

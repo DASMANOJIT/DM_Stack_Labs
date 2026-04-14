@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Portfolio from "./components/Portfolio";
 import Process from "./components/Process";
+import SectionTransition from "./components/SectionTransition";
 import Services from "./components/Services";
 import WhyUs from "./components/WhyUs";
 
@@ -24,22 +25,42 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
         <main>
-          <Hero />
-          <Services />
-          <CTAInline
-            title="Ready to start your website?"
-            description="Get a clear plan, timeline, and pricing from a website development company focused on results."
-          />
-          <WhyUs />
-          <Process />
-          <CTAInline
-            title="Want an SEO-optimized website that converts?"
-            description="We build SEO optimized websites with fast loading performance and responsive website design."
-          />
-          <Portfolio />
-          <GoogleReviews />
-          <CTA />
-          <Contact />
+          <SectionTransition>
+            <Hero />
+          </SectionTransition>
+          <SectionTransition>
+            <Services />
+          </SectionTransition>
+          <SectionTransition>
+            <CTAInline
+              title="Ready to start your website?"
+              description="Get a clear plan, timeline, and pricing from a website development company focused on results."
+            />
+          </SectionTransition>
+          <SectionTransition>
+            <WhyUs />
+          </SectionTransition>
+          <SectionTransition>
+            <Process />
+          </SectionTransition>
+          <SectionTransition>
+            <CTAInline
+              title="Want an SEO-optimized website that converts?"
+              description="We build SEO optimized websites with fast loading performance and responsive website design."
+            />
+          </SectionTransition>
+          <SectionTransition>
+            <Portfolio />
+          </SectionTransition>
+          <SectionTransition>
+            <GoogleReviews />
+          </SectionTransition>
+          <SectionTransition>
+            <CTA />
+          </SectionTransition>
+          <SectionTransition>
+            <Contact />
+          </SectionTransition>
         </main>
         <Footer />
       </div>

@@ -4,12 +4,13 @@ import { createPageMetadata } from "../../lib/metadata";
 export const metadata = createPageMetadata({
   title: "Website for Coaching Institutes | DM Stack Labs",
   description:
-    "DM Stack Labs builds websites for coaching institutes with lead capture, course promotion, admissions-focused landing pages, and automation support.",
+    "DM Stack Labs builds websites and EdTech platforms for coaching institutes with lead capture, course promotion, admissions-focused landing pages, and automation support.",
   path: "/industries/coaching-institute-websites",
   keywords: [
     "website for coaching institute",
     "coaching institute website development",
     "lead generation website for coaching centers",
+    "EdTech platform development",
   ],
 });
 

@@ -16,19 +16,31 @@ function json(data: unknown, status = 200) {
   });
 }
 
+const LIVE_GOOGLE_REVIEWS_ENABLED = false;
+
 export async function GET() {
+  if (!LIVE_GOOGLE_REVIEWS_ENABLED) {
+    return json({
+      success: false,
+      reviews: [],
+      error: "Live Google reviews are temporarily disabled.",
+    });
+  }
+
+  // Temporarily disabled to remove API-key dependency from production builds.
+  // To restore live reviews later:
+  // 1. Set LIVE_GOOGLE_REVIEWS_ENABLED to true
+  // 2. Re-enable the env/config checks below
+  // 3. Keep the Google Places fetch logic intact
   const placeId = process.env.GOOGLE_PLACE_ID;
   const apiKey = process.env.GOOGLE_API_KEY;
 
   if (!placeId || !apiKey) {
-    return json(
-      {
-        success: false,
-        reviews: [],
-        error: "Google reviews are not configured yet. Add GOOGLE_PLACE_ID and GOOGLE_API_KEY.",
-      },
-      200,
-    );
+    return json({
+      success: false,
+      reviews: [],
+      error: "Google reviews are not configured yet. Add GOOGLE_PLACE_ID and GOOGLE_API_KEY.",
+    });
   }
 
   try {

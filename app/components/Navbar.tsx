@@ -41,7 +41,7 @@ export default function Navbar() {
         >
           <span className="relative inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl bg-white/70 shadow-sm ring-1 ring-black/5 backdrop-blur dark:bg-white/10 dark:ring-white/10 sm:h-14 sm:w-14">
             <Image
-              src="/logo.png"
+              src="/main.png"
               alt="DM Stack Labs website development company logo"
               width={56}
               height={56}

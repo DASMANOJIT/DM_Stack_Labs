@@ -4,12 +4,14 @@ import { createPageMetadata } from "../../lib/metadata";
 export const metadata = createPageMetadata({
   title: "Full-Stack Web App Development India | DM Stack Labs",
   description:
-    "Build custom web applications in India with DM Stack Labs. We create full-stack dashboards, portals, workflows, and scalable business systems.",
+    "Build custom web apps in India with DM Stack Labs. We create full-stack dashboards, portals, employee management systems, and scalable business software.",
   path: "/services/full-stack-web-app-development",
   keywords: [
     "full stack development company India",
     "custom web application development India",
     "full stack web app development",
+    "custom web apps",
+    "employee management systems",
   ],
 });
 

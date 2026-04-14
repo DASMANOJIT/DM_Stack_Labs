@@ -4,12 +4,15 @@ import { createPageMetadata } from "../../lib/metadata";
 export const metadata = createPageMetadata({
   title: "Business Automation Tools India | DM Stack Labs",
   description:
-    "DM Stack Labs creates automation tools for small businesses and institutes in India, from lead workflows to fee reminders and operational dashboards.",
+    "DM Stack Labs creates business automation solutions in India, including POS software, employee management systems, lead workflows, reminders, and operational dashboards.",
   path: "/services/business-automation-tools",
   keywords: [
     "automation tools for small business India",
     "business workflow automation India",
     "custom automation tools",
+    "business automation solutions",
+    "POS software",
+    "employee management systems",
   ],
 });
 

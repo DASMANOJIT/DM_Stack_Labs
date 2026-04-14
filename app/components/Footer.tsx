@@ -33,6 +33,30 @@ export default function Footer() {
               Affordable, SEO-optimized web design and development services for startups and
               businesses. Fast, modern, and scalable.
             </p>
+            <div
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/80 px-3 py-2 text-xs font-semibold text-emerald-800 shadow-sm dark:border-emerald-500/20 dark:bg-emerald-500/10 dark:text-emerald-200"
+              role="img"
+              aria-label="MSME Verified Business"
+            >
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-white dark:bg-emerald-400 dark:text-emerald-950">
+                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" aria-hidden="true">
+                  <path
+                    d="M12 3l7 3.6v4.8c0 4.5-2.9 8.7-7 10.6-4.1-1.9-7-6.1-7-10.6V6.6L12 3Z"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="m8.8 12.3 2.1 2.1 4.3-4.7"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <span>MSME Verified Business</span>
+            </div>
           </div>
 
           <div>
@@ -55,8 +79,35 @@ export default function Footer() {
             <p className="text-sm font-semibold text-slate-900 dark:text-white">Contact</p>
             <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
               <li>
-                <a className="hover:text-slate-950 dark:hover:text-white" href="mailto:dmstacklabs@gmail.com">
+                <a
+                  className="hover:text-slate-950 dark:hover:text-white"
+                  href="mailto:dmstacklabs@gmail.com"
+                >
                   dmstacklabs@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/dmstacklabs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit DM Stack Labs on Instagram"
+                  className="inline-flex items-center gap-2 hover:text-slate-950 dark:hover:text-white"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden="true">
+                    <rect
+                      x="3.5"
+                      y="3.5"
+                      width="17"
+                      height="17"
+                      rx="5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                    />
+                    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+                    <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
+                  </svg>
+                  <span>@dmstacklabs</span>
                 </a>
               </li>
             </ul>
