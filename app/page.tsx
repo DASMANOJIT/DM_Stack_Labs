@@ -52,7 +52,7 @@ export default function Home() {
           <SectionTransition>
             <Portfolio />
           </SectionTransition>
-          <SectionTransition>
+          <SectionTransition amount={0.04} margin="0px 0px -4% 0px">
             <GoogleReviews />
           </SectionTransition>
           <SectionTransition>

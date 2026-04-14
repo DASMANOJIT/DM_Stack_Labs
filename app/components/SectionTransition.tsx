@@ -6,16 +6,20 @@ import { useRef } from "react";
 export default function SectionTransition({
   children,
   className,
+  amount = 0.18,
+  margin = "0px 0px -10% 0px",
 }: {
   children: React.ReactNode;
   className?: string;
+  amount?: number;
+  margin?: string;
 }) {
   const prefersReducedMotion = useReducedMotion();
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(sectionRef, {
     once: true,
-    amount: 0.18,
-    margin: "0px 0px -10% 0px",
+    amount,
+    margin: margin as never,
   });
 
   return (

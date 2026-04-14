@@ -222,9 +222,9 @@ export default function GoogleReviews() {
 
         <motion.div
           className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.12 }}
+          initial={prefersReducedMotion ? false : "hidden"}
+          whileInView={prefersReducedMotion ? undefined : "show"}
+          viewport={{ once: true, amount: 0.04, margin: "0px 0px -6% 0px" }}
           variants={{
             hidden: {},
             show: {
