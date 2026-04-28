@@ -20,7 +20,7 @@ const partners = [
   {
     name: "Subho's Computer Institute",
     logo: "/logo.png",
-    url: "https://subhos.vercel.app/",
+    url: "https://subhoscomputerinstitute.com//",
     alt: "Subho's Computer Institute logo",
   },
   {
